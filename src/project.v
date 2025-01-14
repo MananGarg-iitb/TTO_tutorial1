@@ -27,3 +27,16 @@ module tt_um_example (
 
     Full_Adder uut (.A(ui_in[7]), .B(ui_in[6]), .Cin(ui_in[5]), .S(uo_out[7]), .Cout(uo_out[6]));
 endmodule
+
+module Full_Adder(
+	input A,
+	input B,
+	input Cin,
+	output S,
+	output Cout
+);
+
+assign S = (A^B)^Cin;
+assign Cout = (A&B)|(B&Cin)|(Cin&A);
+
+endmodule
