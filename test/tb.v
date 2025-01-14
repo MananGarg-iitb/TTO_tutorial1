@@ -46,4 +46,9 @@ module tb ();
       .rst_n  (rst_n)     // not reset
   );
 
+initial
+begin
+   ui_in[7:5] = 3'b111; ui_in[4:0] = 5'b00000; #5;
+end
+
 endmodule
