@@ -23,5 +23,5 @@ module tt_um_example (
   // List all unused inputs to prevent warnings
     wire _unused = &{ena, uio_in, ui_in[7:3], 1'b0};
 
-    Toplevel uut (.abus(uo_out), .clk(clk), .rst(~rst_n), .pause(ui_in[0]), .regSelect(ui_in[2:1]));
+    Toplevel uut (.Address_Bus(uo_out), .clk(clk), .rst(~rst_n), .pause(ui_in[0]), .regSelect(ui_in[2:1]));
 endmodule
