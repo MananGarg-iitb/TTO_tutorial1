@@ -19,24 +19,9 @@ module tt_um_example (
   // All output pins must be assigned. If not used, assign to 0.
   assign uio_out = 0;
   assign uio_oe  = 0;
-    assign uo_out[5:0] = 0;
 
   // List all unused inputs to prevent warnings
-    wire _unused = &{ena, uio_in, ui_in[4:0], clk, rst_n, 1'b0};
+    wire _unused = &{ena, uio_in, ui_in[7:3], 1'b0};
 
-
-    Full_Adder uut (.A(ui_in[7]), .B(ui_in[6]), .Cin(ui_in[5]), .S(uo_out[7]), .Cout(uo_out[6]));
-endmodule
-
-module Full_Adder(
-	input A,
-	input B,
-	input Cin,
-	output S,
-	output Cout
-);
-
-assign S = (A^B)^Cin;
-assign Cout = (A&B)|(B&Cin)|(Cin&A);
-
+    Toplevel uut (.abus(uo_out), .clk(clk), .rst(~rst_n), .pause(ui_in[0]), .regSelect(ui_in[2:1]));
 endmodule
