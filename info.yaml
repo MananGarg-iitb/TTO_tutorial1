@@ -3,7 +3,7 @@ project:
   title:        "Full Adder"      # Project title
   author:       "Manan Garg"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "CPU it is"      # One line description of what your project does
+  description:  "CPU it may be"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     50000       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -29,6 +29,7 @@ project:
     - "Mux_2x1_8_bit.v"
     - "Mux_4x1_8_bit.v"
     - "Pipo_Register.v"
+    - "Bus_Conductor.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 pinout:

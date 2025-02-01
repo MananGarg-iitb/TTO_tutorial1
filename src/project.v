@@ -17,11 +17,9 @@ module tt_um_example (
 );
     
   // All output pins must be assigned. If not used, assign to 0.
-  assign uio_out = 0;
-  assign uio_oe  = 0;
 
   // List all unused inputs to prevent warnings
-    wire _unused = &{ena, uio_in, ui_in[7:3], 1'b0};
+    wire _unused = &{ena, ui_in[7:3], 1'b0};
 
-    Toplevel uut (.Address_Bus(uo_out), .clk(clk), .rst(~rst_n), .pause(ui_in[0]), .regSelect(ui_in[2:1]));
+    Toplevel uut (.clk(clk),.Bus_Out(uio_out),.Bus_In(uio_in),.rst(~rst_n),.En(uo_out[0]), .Rw(uo_out[1]), .pause(ui_in[0]), .regSelect(ui_in[2:1]), .dispReg(uo_out[7:3]) ,.ALE(uo_out[2]), .TT_En(uio_oe))
 endmodule
